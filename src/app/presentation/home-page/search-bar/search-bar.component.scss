@@ -1,0 +1,10 @@
+$enable-shadows: true;
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+#search-box {
+  border: none;
+  @include border-radius(0);
+  outline: none;
+  @include box-shadow(none);
+}

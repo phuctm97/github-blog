@@ -1,0 +1,33 @@
+{
+  "files.exclude": {
+    // default
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    // js
+    "node_modules/": true,
+    "package-lock.json": true,
+    "yarn.lock": true,
+    "patch.js": true,
+    // ts
+    "**/tsconfig*.json": true,
+    "**/tslint.json": true,
+    // angular config
+    ".editorconfig": true,
+    "angular.json": true,
+    "src/browserslist": true,
+    // angular test
+    "e2e/": true,
+    "src/karma.conf.js": true,
+    "src/test.ts": true,
+    // angular extra
+    "src/polyfills.ts": true,
+    // angular environment
+    "src/main.ts": true,
+    "src/environments/": true,
+    // common git
+    "LICENSE.md": true
+  }
+}

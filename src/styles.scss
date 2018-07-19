@@ -1,0 +1,33 @@
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+// Google fonts
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&subset=vietnamese");
+// Font awesome
+@import url("https://use.fontawesome.com/releases/v5.1.1/css/all.css");
+// Global font
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Montserrat, sans-serif;
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .border#{$infix}-left {
+      border-left: 1px solid $secondary !important;
+    }
+    .border#{$infix}-right {
+      border-right: 1px solid $secondary !important;
+    }
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .text#{$infix}-small {
+      font-size: 14px !important;
+    }
+  }
+}

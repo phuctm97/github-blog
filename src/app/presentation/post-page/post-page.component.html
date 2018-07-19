@@ -1,0 +1,46 @@
+<!-- header pane -->
+<div class="jumbotron pt-6 bg-light" *ngIf="post">
+  <div class="container text-center">
+    <h1 class="display-6">{{post.metadata.title}}</h1>
+    <!-- both author and date available -->
+    <div class="row align-items-center mt-4" *ngIf="post.metadata.author && post.metadata.date">
+      <div class="col-12 col-md-6 text-center text-md-right border-md-right">
+        <a href="#" class="lead text-secondary align-middle" *ngIf="post.metadata.author">
+          <img class="rounded-circle mr-2" height="32" *ngIf="post.metadata.author.avatarUrl" [src]="post.metadata.author.avatarUrl"
+            alt="@" onerror="if (this.src != 'assets/images/user-avatar-alt.svg') this.src = 'assets/images/user-avatar-alt.svg';"
+          />{{post.metadata.author.fullname ? post.metadata.author.fullname : post.metadata.author.username}}</a>
+      </div>
+      <div class="col-12 col-md-6 text-center text-md-left mt-3 mt-md-0">
+        <!-- TODO: use pipe to display date -->
+        <p class="lead mb-0 text-sm-small text-secondary">{{post.metadata.date}}</p>
+      </div>
+    </div>
+    <!-- only author available -->
+    <div class="row align-items-center mt-4" *ngIf="post.metadata.author && (!post.metadata.date)">
+      <div class="col">
+        <a href="#" class="lead text-secondary">
+          <img class="rounded-circle mr-2" height="32" *ngIf="post.metadata.author.avatarUrl" [src]="post.metadata.author.avatarUrl"
+            alt="@" onerror="if (this.src != 'assets/images/user-avatar-alt.svg') this.src = 'assets/images/user-avatar-alt.svg';"
+          />{{post.metadata.author.fullname ? post.metadata.author.fullname : post.metadata.author.username}}</a>
+      </div>
+    </div>
+    <!-- only date available -->
+    <p class="lead text-secondary mt-4 mr-0" *ngIf="(!post.metadata.author) && post.metadata.date">{{post.metadata.date}}</p>
+  </div>
+</div>
+<!-- content pane -->
+<div class="container post-content" *ngIf="post">
+  <div class="row">
+    <div class="col">
+      <div [innerHtml]="postContentHtml | santinize"></div>
+    </div>
+  </div>
+</div>
+<!-- loading pane -->
+<div class="container" *ngIf="!post">
+  <div class="row mt-5">
+    <div class="col text-center mt-5">
+      <img src="assets/images/loading.svg" height="64" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+// Github code syntax highlight
+@import "node_modules/highlight.js/styles/github.css";
+@import "../../../variables";
+// Github code pane
+pre {
+  code {
+    display: block;
+    overflow-x: auto;
+    padding: $container-padding;
+    background-color: $light;
+    @include border-radius($container-border-radius);
+  }
+}
+
+pre {
+  code.hljs {
+    padding: $container-padding;
+    background-color: $light;
+    @include border-radius($container-border-radius);
+  }
+}
+
+div.post-content img {
+  @include img-fluid;
+}
+
+// Github table
+table.hljs-table {
+  padding: 0;
+  margin: 1rem 0;
+  tr {
+    background-color: $white;
+    &:nth-child(2n) {
+      background-color: $light;
+    }
+    th,
+    td {
+      border: 1px solid $line-rule-color;
+      padding: $container-padding;
+    }
+    th {
+      font-weight: bold;
+    }
+  }
+}
